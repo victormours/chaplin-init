@@ -4,6 +4,8 @@ Setup
 ===
 
 ```
+  git clone git@github.com:victormours/chaplin-init.git my_chaplin_project
+  cd my_chaplin_project
   bundle
   bower install
 ```
@@ -16,3 +18,4 @@ Starting the server
 ```
   bundle exec rackup
 ```
+
