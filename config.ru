@@ -2,4 +2,4 @@
 require "rack"
 require 'chaplin'
 
-run Chaplin.new(Dir.pwd).server
+run Chaplin.new(Dir.pwd + "/dist").server
