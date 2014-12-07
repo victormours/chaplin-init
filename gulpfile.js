@@ -10,6 +10,14 @@ gulp.task('buildCss', function () {
         .pipe(gulp.dest('dist/public/css'));
 });
 
+gulp.task('buildJs', function () {
+  return gulp.src(['bower_components/foundation/js/foundation.min.js',
+                 'bower_components/modernizr/modernizr.js',
+                 'bower_components/jquery/dist/jquery.min.js'])
+        .pipe(gulp.dest('dist/public/js'));
+
+})
+
 gulp.task('buildTemplates', function () {
   return gulp.src('src/templates/*')
         .pipe(gulp.dest('dist/templates'));
@@ -19,3 +27,7 @@ gulp.task('buildChaplin', function () {
   return gulp.src(['src/routes.json', 'src/chaplin_config.json', 'src/templates/*'])
         .pipe(gulp.dest('dist'));
 });
+
+gulp.task('build', function () {
+  return gulp.start('buildChaplin', 'buildTemplates', 'buildCss');
+})
