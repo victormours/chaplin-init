@@ -15,8 +15,13 @@ gulp.task('buildJs', function () {
                  'bower_components/modernizr/modernizr.js',
                  'bower_components/jquery/dist/jquery.min.js'])
         .pipe(gulp.dest('dist/public/js'));
-
 })
+
+gulp.task('buildImages', function () {
+  return gulp.src('src/public/images/*')
+        .pipe(gulp.dest('dist/public/images'));
+})
+
 
 gulp.task('buildTemplates', function () {
   return gulp.src('src/templates/*')
@@ -29,5 +34,5 @@ gulp.task('buildChaplin', function () {
 });
 
 gulp.task('build', function () {
-  return gulp.start('buildChaplin', 'buildTemplates', 'buildCss');
+  return gulp.start('buildChaplin', 'buildTemplates', 'buildJs', 'buildCss');
 })
