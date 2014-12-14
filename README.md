@@ -5,9 +5,10 @@ Setup
 
 ```
   git clone git@github.com:victormours/chaplin-init.git my_chaplin_project
-  git remote remove origin
   cd my_chaplin_project
+  rm -rf .git
   bundle
+  npm install
   bower install
 ```
 
