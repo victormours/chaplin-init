@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 
-gulp.task('buildCss', function () {
+gulp.task('css', function () {
     return gulp.src('src/public/scss/app.scss')
         .pipe(sass({
           loadPath: "bower_components/foundation/scss",
@@ -10,7 +10,11 @@ gulp.task('buildCss', function () {
         .pipe(gulp.dest('dist/public/css'));
 });
 
-gulp.task('buildJs', function () {
+gulp.task('watchCss', function () {
+  gulp.watch('src/public/scss/app.scss', ['css'])
+});
+
+gulp.task('js', function () {
   return gulp.src(['bower_components/foundation/js/foundation.min.js',
                  'bower_components/modernizr/modernizr.js',
                  'bower_components/jquery/dist/jquery.min.js'])
