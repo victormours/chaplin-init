@@ -1,6 +1,7 @@
 {
   "name": "chaplin-init",
   "version": "0.0.0",
+  "engines": { "node": "~0.10.21" },
   "description": "A fast way to bootstrap a Chaplin project",
   "repository": {
     "type": "git",
