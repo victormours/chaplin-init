@@ -1,8 +1,17 @@
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 
+var css_files = 'src/public/scss/app.scss',
+    js_files = ['bower_components/foundation/js/foundation.min.js',
+                 'bower_components/modernizr/modernizr.js',
+                 'bower_components/jquery/dist/jquery.min.js'],
+    image_files = 'src/public/images/*',
+    template_files = 'src/templates/*',
+    chaplin_files = ['src/routes.json', 'src/app.yml']
+
+
 gulp.task('css', function () {
-    return gulp.src('src/public/scss/app.scss')
+    return gulp.src(css_files)
         .pipe(sass({
           loadPath: "bower_components/foundation/scss",
         }))
@@ -10,32 +19,34 @@ gulp.task('css', function () {
         .pipe(gulp.dest('dist/public/css'));
 });
 
-gulp.task('watchCss', function () {
-  gulp.watch('src/public/scss/app.scss', ['css'])
-});
-
 gulp.task('js', function () {
-  return gulp.src(['bower_components/foundation/js/foundation.min.js',
-                 'bower_components/modernizr/modernizr.js',
-                 'bower_components/jquery/dist/jquery.min.js'])
+  return gulp.src(js_files)
         .pipe(gulp.dest('dist/public/js'));
 })
 
-gulp.task('buildImages', function () {
-  return gulp.src('src/public/images/*')
+gulp.task('images', function () {
+  return gulp.src(image_files)
         .pipe(gulp.dest('dist/public/images'));
 })
 
-
-gulp.task('buildTemplates', function () {
-  return gulp.src('src/templates/*')
+gulp.task('templates', function () {
+  return gulp.src(template_files)
         .pipe(gulp.dest('dist/templates'));
 });
 
-gulp.task('buildChaplin', function () {
-  return gulp.src(['src/routes.json', 'src/chaplin_config.json', 'src/templates/*'])
+gulp.task('chaplin', function () {
+  return gulp.src(chaplin_files)
         .pipe(gulp.dest('dist'));
 });
+
+gulp.task('watch', function () {
+  gulp.watch(css_files, ['css']);
+  gulp.watch(js_files, ['js']);
+  gulp.watch(image_files, ['images']);
+  gulp.watch(template_files, ['templates']);
+  gulp.watch(chaplin_files, ['chaplin']);
+});
+
 
 gulp.task('build', function () {
   return gulp.start('buildChaplin', 'buildTemplates', 'buildJs', 'buildCss');
