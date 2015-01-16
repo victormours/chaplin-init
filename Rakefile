@@ -1,7 +1,8 @@
 namespace :assets do
 
   task :precompile do
-    puts "Precompiling assets"
+    `bower install`
+    `gulp build`
   end
 
 end
