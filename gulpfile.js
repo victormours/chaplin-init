@@ -40,7 +40,7 @@ gulp.task('chaplin', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(css_files, ['css']);
+  gulp.watch('src/public/scss/*', ['css']);
   gulp.watch(js_files, ['js']);
   gulp.watch(image_files, ['images']);
   gulp.watch(template_files, ['templates']);
@@ -49,5 +49,5 @@ gulp.task('watch', function () {
 
 
 gulp.task('build', function () {
-  return gulp.start('buildChaplin', 'buildTemplates', 'buildJs', 'buildCss');
+  return gulp.start('chaplin', 'templates', 'js', 'css');
 })
