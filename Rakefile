@@ -1,9 +1,9 @@
 namespace :assets do
 
   task :precompile do
-    `npm install`
-    `bower install`
-    `gulp build`
+    # `npm install`
+    # `bower install`
+    # `gulp build`
   end
 
 end
