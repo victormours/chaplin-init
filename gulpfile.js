@@ -49,5 +49,5 @@ gulp.task('watch', function () {
 
 
 gulp.task('build', function () {
-  return gulp.start('chaplin', 'templates', 'js', 'css');
+  return gulp.start('chaplin', 'templates', 'js', 'css', 'images');
 })
