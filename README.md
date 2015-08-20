@@ -6,13 +6,12 @@ Setup
 ```
   git clone git@github.com:victormours/chaplin-init.git my_chaplin_project
   cd my_chaplin_project
-  rm -rf .git
-  bundle
-  npm install
-  bower install
+  ./install.sh
 ```
 
 Add an api in `chaplin_config.json`
+
+Build the project with `gulp build`
 
 Starting the server
 ===
